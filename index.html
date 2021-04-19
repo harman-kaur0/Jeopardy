@@ -6,47 +6,29 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
     <title>Jeopardy</title>
+    <link rel="preconnect" href="https://fonts.gstatic.com" />
+    <link
+      href="https://fonts.googleapis.com/css2?family=Zen+Dots&display=swap"
+      rel="stylesheet"
+    />
     <link rel="stylesheet" type="text/css" href="style.css" />
     <script defer type="text/javascript" src="script.js"></script>
   </head>
   <body>
-    <div class="grid-container">
-      <div class="grid-item">Category 1</div>
-      <div class="grid-item">Category 2</div>
-      <div class="grid-item">Category 3</div>
-      <div class="grid-item">Category 4</div>
-      <div class="grid-item">Category 5</div>
-      <div class="grid-item">Category 6</div>
-      <div class="grid-item">$100</div>
-      <div class="grid-item">$100</div>
-      <div class="grid-item">$100</div>
-      <div class="grid-item">$100</div>
-      <div class="grid-item">$100</div>
-      <div class="grid-item">$100</div>
-      <div class="grid-item">$200</div>
-      <div class="grid-item">$200</div>
-      <div class="grid-item">$200</div>
-      <div class="grid-item">$200</div>
-      <div class="grid-item">$200</div>
-      <div class="grid-item">$200</div>
-      <div class="grid-item">$300</div>
-      <div class="grid-item">$300</div>
-      <div class="grid-item">$300</div>
-      <div class="grid-item">$300</div>
-      <div class="grid-item">$300</div>
-      <div class="grid-item">$300</div>
-      <div class="grid-item">$400</div>
-      <div class="grid-item">$400</div>
-      <div class="grid-item">$400</div>
-      <div class="grid-item">$400</div>
-      <div class="grid-item">$400</div>
-      <div class="grid-item">$400</div>
-      <div class="grid-item">$500</div>
-      <div class="grid-item">$500</div>
-      <div class="grid-item">$500</div>
-      <div class="grid-item">$500</div>
-      <div class="grid-item">$500</div>
-      <div class="grid-item">$500</div>
+    <h1>What You Know?</h1>
+    <div id="startButton">
+      <button>Click here to start game!</button>
+    </div>
+    <div id="questionForm">
+      <p id="question">question goes here----</p>
+      <form>
+        <input
+          type="text"
+          placeholder="write your answer here..."
+          name="answer"
+        />
+        <input type="submit" />
+      </form>
     </div>
   </body>
 </html>
