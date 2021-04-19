@@ -1,0 +1,9 @@
+.grid-container {
+  display: grid;
+  background-color: blueviolet;
+}
+
+.grid-item {
+  width: 75px;
+  height: 50px;
+}
