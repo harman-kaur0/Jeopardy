@@ -1,10 +1,12 @@
 const question = document.querySelector("#question");
+const startButton = document.querySelector("#startButton");
 const url = "http://jservice.io/api/random";
 const form = document.querySelector("form");
 const button = document.querySelector("button");
 const quesForm = document.querySelector("#questionForm");
 const categories = document.querySelector("#categories");
 const h3 = document.querySelector("h3");
+const questionValue = document.querySelector("#value");
 const button2 = document.createElement("button");
 button2.innerText = "next Question";
 
@@ -16,9 +18,16 @@ function initialize() {
 
 function randomQuestion() {
   initialize().then((data) => {
-    console.log(data[0].answer);
-    question.innerText = data[0].question;
+    console.log(data[0]);
+    if (data[0].question === "" || data[0].question === "[video clip]") {
+      randomQuestion();
+    } else {
+      question.innerText = data[0].question;
+    }
+
     randomAnswer = data[0].answer;
+    questionValue.innerText = parseInt(data[0].value);
+    console.log(parseInt(data[0].value));
     h3.innerText = `Category: ${data[0].category.title}`;
   });
 }
@@ -38,13 +47,17 @@ function corAns() {
   p.innerText = `Answer:  ${randomAnswer}`;
   quesForm.appendChild(p);
 }
-
+const h4 = document.createElement("h4");
+h4.innerText = 0;
+startButton.appendChild(h4);
 function handleSubmit(e) {
   e.preventDefault();
   let value = e.target.answer.value;
-  if (value === randomAnswer) {
+  if (randomAnswer.includes(value)) {
+    
     corAns();
-    alert("You are a genius!!!");
+    h4.innerText = parseInt(h4.innerText) + parseInt(questionValue.innerText);
+    console.log(h4.innerText);
   } else {
     corAns();
   }
@@ -63,6 +76,11 @@ function buttonClick() {
   quesForm.removeChild(ans);
 }
 
+function resetClick() {
+  h4.innerText = 0;
+}
+
 form.addEventListener("submit", handleSubmit);
 button.addEventListener("click", handleClick);
 button2.addEventListener("click", buttonClick);
+reset.addEventListener("click", resetClick);
