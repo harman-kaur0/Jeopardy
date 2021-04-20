@@ -21,10 +21,45 @@ button {
 
 button:hover {
   background: white;
-  color: #1a64d6;
-  border: 1px solid #1a64d6;
+  color: #1de2b8;
+  border: 1px solid #1de2b8;
 }
 
 #questionForm {
   display: none;
+  text-align: center;
+  box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
+  max-width: 500px;
+  margin: 0 auto;
+  transition: 0.3s;
+  padding: 2px 16px;
 }
+#question {
+  font-family: monospace;
+}
+
+h3 {
+  border: 1px solid black;
+  border-radius: 10px;
+  background-color: #1de2b8;
+  font-family: "Zen Dots", cursive;
+  font-weight: lighter;
+  padding-top: 5px;
+  padding-bottom: 5px;
+}
+
+/* input[type="submit"] {
+  background-color: #1de2b8;
+  color: black;
+  font-size: 18px;
+  border-radius: 30px;
+  font-family: "Zen Dots", cursive;
+}
+
+#categories {
+  display: none;
+}
+
+.div-text {
+  display: inline-block;
+} */
