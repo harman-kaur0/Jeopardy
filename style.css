@@ -34,7 +34,7 @@ button:hover {
   max-width: 500px;
   margin: 0 auto;
   transition: 0.3s;
-  padding: 2px 16px;
+  padding: 2px 16px 10px;
 }
 #question {
   font-family: monospace;
@@ -75,9 +75,9 @@ h3 {
   display: none;
 }
 
-/* #incorrect-gif {
+#incorrect-gif {
   display: none;
-} */
+}
 
 h4 {
   display: none;
@@ -111,6 +111,23 @@ input[type="submit"] {
 @media (max-width: 470px) {
   input[type="text"]{
     min-width: fit-content;
+  }
+}
+
+@media (max-width: 800px) {
+  #correct-gif, #incorrect-gif {
+    right: 0px;
+    top: 90px;
+    width: 150px;
+  }
+}
+
+@media (max-width: 525px) {
+  #correct-gif, #incorrect-gif {
+    position: static;
+    display: block;
+    margin: 0 auto;
+
   }
 }
 /* input[type="submit"] {

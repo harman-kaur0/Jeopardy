@@ -10,6 +10,9 @@ const questionValue = document.querySelector("#value");
 const button2 = document.createElement("button");
 button2.innerText = "next Question";
 const h2 = document.querySelector('h2')
+const correctSticker = document.querySelector('#correct-gif')
+const incorrectSticker = document.querySelector('#incorrect-gif')
+
 
 let randomAnswer;
 let currentQuesValue;
@@ -30,6 +33,10 @@ function randomQuestion() {
     }
 
     randomAnswer = data[0].answer;
+    if (randomAnswer.charAt(0) === '<') {
+      randomAnswer = randomAnswer.slice(3, -4)
+    }
+
     currentQuesValue = data[0].value;
     console.log(randomAnswer)
     questionValue.innerText = `Value: ${parseInt(data[0].value)}`;
@@ -60,9 +67,13 @@ function handleSubmit(e) {
     
     corAns();
     h4.innerText = parseInt(h4.innerText) + parseInt(currentQuesValue);
-    console.log(h4.innerText);
+    correctSticker.style.display = 'block'
+    setTimeout(()=>correctSticker.style.display = "none", 3000)
+    // console.log(h4.innerText);
   } else {
     corAns();
+    incorrectSticker.style.display = 'block'
+    setTimeout(()=>incorrectSticker.style.display = "none", 3000)
   }
   quesForm.replaceChild(button2, form);
   e.target.reset();
@@ -71,6 +82,7 @@ function handleSubmit(e) {
 //different answer scenerio - dont forget the answer is in the #quesForm
 // the Bay of Biscay
 // <i>The Fourth Musketeer</i>
+// the <i>Appassionata</i>
 // "The Jazz Singer"
 // "Magic" Johnson
 // 15 (9 + 6)
@@ -80,6 +92,7 @@ function handleSubmit(e) {
 // a View-Master
 
 // rowed/rode - what to do?
+// Margaret O\'Brien
 
 // puts user answer and correct answer in same format
 function equalAnswers(ans) {
