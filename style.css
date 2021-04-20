@@ -28,7 +28,8 @@ button:hover {
 #questionForm {
   display: none;
   text-align: center;
-  background-color: #4de0c1;
+  background-color: #4de0c07a;
+  backdrop-filter: blur(10px); /* Applies a blur effect to background */
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
   max-width: 500px;
   margin: 0 auto;
@@ -37,6 +38,7 @@ button:hover {
 }
 #question {
   font-family: monospace;
+  font-size: 1.5em;
 }
 
 h3 {
@@ -70,6 +72,25 @@ h2 {
   font-family: "Zen Dots", cursive;
 }
 
+input[type="text"]{
+  height: 4vh;
+  font-size: 2.25vh;
+  min-width: 386px;
+}
+
+input[type="submit"] {
+  background-color: rgb(49, 109, 179);
+  color: white;
+  font-size: 18px;
+  border-radius: 6px;
+  font-family: "Zen Dots", cursive;
+}
+
+@media (max-width: 470px) {
+  input[type="text"]{
+    min-width: fit-content;
+  }
+}
 /* input[type="submit"] {
   background-color: #1de2b8;
   color: black;
