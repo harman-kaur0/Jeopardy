@@ -14,10 +14,12 @@ const h2 = document.querySelector('h2')
 let randomAnswer;
 let currentQuesValue;
 
+// our fetch
 function initialize() {
   return fetch(url).then((resp) => resp.json());
 }
 
+// displays new question
 function randomQuestion() {
   initialize().then((data) => {
     // console.log(data[0]);
@@ -39,6 +41,7 @@ function randomQuestion() {
 
 randomQuestion();
 
+// displays correct answer
 function corAns() {
   const p = document.createElement("p");
   p.id = "correctAnswer";
@@ -49,6 +52,7 @@ const h4 = document.createElement("h4");
 h4.innerText = 0;
 startButton.appendChild(h4);
 
+// handles answer submission and compares user answer to correct answer; also swaps form with next ? button; also adds value to score; also displays correct/incorrect sticker
 function handleSubmit(e) {
   e.preventDefault();
   let value = e.target.answer.value;
@@ -77,6 +81,7 @@ function handleSubmit(e) {
 
 // rowed/rode - what to do?
 
+// puts user answer and correct answer in same format
 function equalAnswers(ans) {
   ans = ans.toLowerCase()
   if (ans.charAt(0) === '<') {
@@ -95,6 +100,7 @@ function equalAnswers(ans) {
   return ans
 }
 
+// starts the game
 function handleClick() {
   quesForm.style.display = "block";
   h4.style.display = 'block';
@@ -102,6 +108,7 @@ function handleClick() {
   button.style.display = 'none';
 }
 
+// next question button
 function buttonClick() {
   randomQuestion();
   quesForm.replaceChild(form, button2);
@@ -109,6 +116,7 @@ function buttonClick() {
   quesForm.removeChild(ans);
 }
 
+// resets the score
 function resetClick() {
   h4.innerText = 0;
 }
