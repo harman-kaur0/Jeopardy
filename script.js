@@ -9,8 +9,10 @@ const h3 = document.querySelector("h3");
 const questionValue = document.querySelector("#value");
 const button2 = document.createElement("button");
 button2.innerText = "next Question";
+const h2 = document.querySelector('h2')
 
 let randomAnswer;
+let currentQuesValue;
 
 function initialize() {
   return fetch(url).then((resp) => resp.json());
@@ -26,8 +28,9 @@ function randomQuestion() {
     }
 
     randomAnswer = data[0].answer;
+    currentQuesValue = data[0].value;
     console.log(randomAnswer)
-    questionValue.innerText = parseInt(data[0].value);
+    questionValue.innerText = `Value: ${parseInt(data[0].value)}`;
     // console.log(parseInt(data[0].value));
     h3.innerText = `Category: ${data[0].category.title}`;
   });
@@ -52,7 +55,7 @@ function handleSubmit(e) {
   if (equalAnswers(randomAnswer) === equalAnswers(value)) {
     
     corAns();
-    h4.innerText = parseInt(h4.innerText) + parseInt(questionValue.innerText);
+    h4.innerText = parseInt(h4.innerText) + parseInt(currentQuesValue);
     console.log(h4.innerText);
   } else {
     corAns();
@@ -94,6 +97,9 @@ function equalAnswers(ans) {
 
 function handleClick() {
   quesForm.style.display = "block";
+  h4.style.display = 'block';
+  h2.style.display = 'block';
+  button.style.display = 'none';
 }
 
 function buttonClick() {
