@@ -119,6 +119,7 @@ function handleClick() {
   h4.style.display = 'block';
   h2.style.display = 'block';
   button.style.display = 'none';
+  startButton.style.display = 'block';
 }
 
 // next question button
