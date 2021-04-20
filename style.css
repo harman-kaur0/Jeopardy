@@ -66,18 +66,18 @@ h3 {
   right: 40px;
   top: 30px;
   width: 200px;
-  border-radius: 35%;
+  border-radius: 25%;
   z-index: 2;
   border: 1px solid lightgrey;
 }
 
-/* #correct-gif{
-  display: none;
-} */
-
-#incorrect-gif {
+#correct-gif{
   display: none;
 }
+
+/* #incorrect-gif {
+  display: none;
+} */
 
 h4 {
   display: none;
