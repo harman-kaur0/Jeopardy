@@ -28,6 +28,7 @@ button:hover {
 #questionForm {
   display: none;
   text-align: center;
+  background-color: #4de0c1;
   box-shadow: 0 4px 5px 0 rgba(0, 0, 0, 0.2);
   max-width: 500px;
   margin: 0 auto;

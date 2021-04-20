@@ -18,7 +18,7 @@ function initialize() {
 
 function randomQuestion() {
   initialize().then((data) => {
-    console.log(data[0]);
+    // console.log(data[0]);
     if (data[0].question === "" || data[0].question === "[video clip]") {
       randomQuestion();
     } else {
@@ -26,18 +26,13 @@ function randomQuestion() {
     }
 
     randomAnswer = data[0].answer;
+    console.log(randomAnswer)
     questionValue.innerText = parseInt(data[0].value);
-    console.log(parseInt(data[0].value));
+    // console.log(parseInt(data[0].value));
     h3.innerText = `Category: ${data[0].category.title}`;
   });
 }
-//different answer scenerio
-// the Bay of Biscay
-// <i>The Fourth Musketeer</i>
-// "The Jazz Singer"
-// 15 (9 + 6)
-// 1918 (World War I)
-// (George) Luger
+
 
 randomQuestion();
 
@@ -50,10 +45,11 @@ function corAns() {
 const h4 = document.createElement("h4");
 h4.innerText = 0;
 startButton.appendChild(h4);
+
 function handleSubmit(e) {
   e.preventDefault();
   let value = e.target.answer.value;
-  if (randomAnswer.includes(value)) {
+  if (equalAnswers(randomAnswer) === equalAnswers(value)) {
     
     corAns();
     h4.innerText = parseInt(h4.innerText) + parseInt(questionValue.innerText);
@@ -63,6 +59,37 @@ function handleSubmit(e) {
   }
   quesForm.replaceChild(button2, form);
   e.target.reset();
+}
+
+//different answer scenerio - dont forget the answer is in the #quesForm
+// the Bay of Biscay
+// <i>The Fourth Musketeer</i>
+// "The Jazz Singer"
+// "Magic" Johnson
+// 15 (9 + 6)
+// 1918 (World War I)
+// (George) Luger
+// British Columbia & the Yukon Territory
+// a View-Master
+
+// rowed/rode - what to do?
+
+function equalAnswers(ans) {
+  ans = ans.toLowerCase()
+  if (ans.charAt(0) === '<') {
+    ans = ans.slice(3, -4)
+  } else if (ans.indexOf('(')!== -1) {
+    ans = ans.split('')
+    const openParen = ans.indexOf('(')
+    const closeParen = ans.indexOf(')')
+    ans.splice(openParen, closeParen - openParen + 1)
+    ans = ans.join('').trim()
+  }
+  ans = ans.split('')
+  ans = ans.filter(char => char.match(/[A-Za-z0-9&.,-]|\s|\'/g))
+  ans = ans.join('')
+  console.log(ans)
+  return ans
 }
 
 function handleClick() {
