@@ -30,6 +30,7 @@ function randomQuestion() {
     } else {
       question.innerText = data[0].question;
     }
+    console.log(data[0].answer);
 
     randomAnswer = data[0].answer;
     console.log(typeof randomAnswer);
@@ -37,7 +38,12 @@ function randomQuestion() {
 
     currentQuesValue = data[0].value;
     console.log(randomAnswer);
-    questionValue.innerText = `Value: ${parseInt(data[0].value)}`;
+    // questionValue.innerText = `Value: ${parseInt(data[0].value)}`;
+    if (typeof data[0].value !== "number") {
+      questionValue.innerText = `Value: 100`;
+    } else {
+      questionValue.innerText = `Value: ${parseInt(data[0].value)}`;
+    }
     // console.log(parseInt(data[0].value));
     h3.innerText = `Category: ${data[0].category.title}`;
   });
@@ -84,29 +90,14 @@ function handleSubmit(e) {
 }
 
 //different answer scenerio - dont forget the answer is in the #quesForm
-// the Bay of Biscay
-// <i>The Fourth Musketeer</i>
-// the <i>Appassionata</i>
-// "The Jazz Singer"
-// "Magic" Johnson
-// 15 (9 + 6)
-// 1918 (World War I)
-// (George) Luger
-// British Columbia & the Yukon Territory
-// a View-Master
 
-// rowed/rode ----- what to do?
-// Margaret O\'Brien
-// René Descartes
-// En garde!
-// vis - à - vis;
-// 33 1/3
-//questiosns with null value
+// Margaret O\'Brien 
 
 // puts user answer and correct answer in same format
 function equalAnswers(ans) {
   ans = ans.toLowerCase();
   if (ans.includes("<i>")) {
+    //
     ans = ans.replaceAll("<i>", "");
     ans = ans.replaceAll("</i>", "");
     console.log(ans);
@@ -119,7 +110,7 @@ function equalAnswers(ans) {
     ans = ans.join("").trim();
   }
   ans = ans.split("");
-  ans = ans.filter((char) => char.match(/[A-Za-z0-9&.,-]|\s|\'/g));
+  ans = ans.filter((char) => char.match(/[A-Za-z0-9àé&.,-]|\s|\'|\!|\//g));
   ans = ans.join("");
   console.log(ans);
 
