@@ -33,15 +33,16 @@ function randomQuestion() {
     console.log(data[0].answer);
 
     randomAnswer = data[0].answer;
-    console.log(typeof randomAnswer);
+    // console.log(typeof randomAnswer);
     randomAnswer = answer1(randomAnswer);
 
-    currentQuesValue = data[0].value;
-    console.log(randomAnswer);
+    // console.log(randomAnswer);
     // questionValue.innerText = `Value: ${parseInt(data[0].value)}`;
     if (typeof data[0].value !== "number") {
       questionValue.innerText = `Value: 100`;
+      currentQuesValue = 100;
     } else {
+      currentQuesValue = data[0].value;
       questionValue.innerText = `Value: ${parseInt(data[0].value)}`;
     }
     // console.log(parseInt(data[0].value));
@@ -91,7 +92,7 @@ function handleSubmit(e) {
 
 //different answer scenerio - dont forget the answer is in the #quesForm
 
-// Margaret O\'Brien 
+// Margaret O\'Brien
 
 // puts user answer and correct answer in same format
 function equalAnswers(ans) {

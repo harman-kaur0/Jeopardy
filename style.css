@@ -146,7 +146,7 @@ input[type="submit"] {
 @media (max-width: 525px) {
   #correct-gif, #incorrect-gif {
     position: static;
-    display: block;
+    /* display: block; */
     margin: 0 auto;
 
   }
