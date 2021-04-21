@@ -32,9 +32,8 @@ function randomQuestion() {
     }
 
     randomAnswer = data[0].answer;
-    if (randomAnswer.charAt(0) === "<") {
-      randomAnswer = randomAnswer.slice(3, -4);
-    }
+    console.log(typeof randomAnswer);
+    randomAnswer = answer1(randomAnswer);
 
     currentQuesValue = data[0].value;
     console.log(randomAnswer);
@@ -45,6 +44,14 @@ function randomQuestion() {
 }
 
 randomQuestion();
+
+function answer1(answ) {
+  if (answ.includes("<i>")) {
+    answ = answ.replaceAll("<i>", "");
+    answ = answ.replaceAll("</i>", "");
+  }
+  return answ;
+}
 
 // displays correct answer
 function corAns() {
@@ -88,8 +95,13 @@ function handleSubmit(e) {
 // British Columbia & the Yukon Territory
 // a View-Master
 
-// rowed/rode - what to do?
+// rowed/rode ----- what to do?
 // Margaret O\'Brien
+// René Descartes
+// En garde!
+// vis - à - vis;
+// 33 1/3
+//questiosns with null value
 
 // puts user answer and correct answer in same format
 function equalAnswers(ans) {
@@ -97,6 +109,8 @@ function equalAnswers(ans) {
   if (ans.includes("<i>")) {
     ans = ans.replaceAll("<i>", "");
     ans = ans.replaceAll("</i>", "");
+    console.log(ans);
+    return ans;
   } else if (ans.indexOf("(") !== -1) {
     ans = ans.split("");
     const openParen = ans.indexOf("(");
@@ -108,6 +122,7 @@ function equalAnswers(ans) {
   ans = ans.filter((char) => char.match(/[A-Za-z0-9&.,-]|\s|\'/g));
   ans = ans.join("");
   console.log(ans);
+
   return ans;
 }
 
