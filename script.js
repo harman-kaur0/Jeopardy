@@ -56,6 +56,9 @@ function answer1(answ) {
   if (answ.includes("<i>")) {
     answ = answ.replaceAll("<i>", "");
     answ = answ.replaceAll("</i>", "");
+  } else if (answ.includes("<I>")) {
+    answ = answ.replaceAll("<I>", "");
+    answ = answ.replaceAll("</I>", "");
   } else if (answ.includes("<sub>")) {
     answ = answ.replaceAll("<sub>", "");
     answ = answ.replaceAll("</sub>", "");
