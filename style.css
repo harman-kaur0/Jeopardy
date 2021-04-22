@@ -2,7 +2,7 @@ body {
   background-image: url("https://static.vecteezy.com/system/resources/previews/000/098/341/original/free-question-mark-background-vector.jpg");
   background-blend-mode: luminosity;
   background-color: #ffe4c4;
-  background-size: cover;
+  background-size: 100%;
 }
 
 h1 {

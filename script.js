@@ -56,6 +56,9 @@ function answer1(answ) {
   if (answ.includes("<i>")) {
     answ = answ.replaceAll("<i>", "");
     answ = answ.replaceAll("</i>", "");
+  } else if (answ.includes("<sub>")) {
+    answ = answ.replaceAll("<sub>", "");
+    answ = answ.replaceAll("</sub>", "");
   }
   return answ;
 }
@@ -98,10 +101,14 @@ function handleSubmit(e) {
 function equalAnswers(ans) {
   ans = ans.toLowerCase();
   if (ans.includes("<i>")) {
-    //
     ans = ans.replaceAll("<i>", "");
     ans = ans.replaceAll("</i>", "");
-    console.log(ans);
+    // console.log(ans);
+    return ans;
+  } else if (ans.includes("<sub>")) {
+    ans = ans.replaceAll("<sub>", "");
+    ans = ans.replaceAll("</sub>", "");
+    // console.log(ans);
     return ans;
   } else if (ans.indexOf("(") !== -1) {
     ans = ans.split("");
